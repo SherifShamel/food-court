@@ -1,4 +1,3 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:food_court/core/config/application_theme_manager/theme_manager.dart';
 import 'package:food_court/core/config/routes/page_route_names.dart';

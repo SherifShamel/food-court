@@ -8,7 +8,6 @@ class FilterScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool onTap = false;
     List<String> categories = [
       "Beef",
       "Chicken",
