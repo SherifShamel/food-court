@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../category_feature/pages/category_screen.dart';
 import '../favorite_feature/favorite_screen.dart';
 import '../home_feature/pages/home_screen.dart';
 import '../settings_feature/pages/settings_screen.dart';
@@ -15,6 +16,7 @@ class _LayoutScreenState extends State<LayoutScreen> {
   int currentIndex = 0;
   List<Widget> screens = [
     const HomeScreen(),
+    const CategoryScreen(),
     const FavoriteScreen(),
     const SettingsScreen(),
     // const MoviesListView(),
@@ -33,19 +35,19 @@ class _LayoutScreenState extends State<LayoutScreen> {
           },
           items: const [
             BottomNavigationBarItem(
-              icon: Icon(Icons.home),
+              icon: Icon(Icons.home_outlined),
               label: "Home",
             ),
-            // BottomNavigationBarItem(
-            //   icon: Icon(Icons.search),
-            //   label: "Search",
-            // ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.favorite),
+              icon: Icon(Icons.category_outlined),
+              label: "Categories",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.favorite_outline_rounded),
               label: "Favorites",
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.settings),
+              icon: Icon(Icons.settings_outlined),
               label: "Settings",
             ),
           ]),

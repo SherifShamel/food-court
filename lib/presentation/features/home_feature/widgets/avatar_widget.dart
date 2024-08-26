@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
 class AvatarWidget extends StatelessWidget {
-  const AvatarWidget({Key? key}) : super(key: key);
+  final ImageProvider image;
+  final String mealName;
+
+  const AvatarWidget({Key? key, required this.image, required this.mealName})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -11,20 +15,19 @@ class AvatarWidget extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 5),
         scrollDirection: Axis.horizontal,
         shrinkWrap: true,
-        itemCount: 10,
-        itemBuilder: (context, index) => const SingleChildScrollView(
+        itemCount: 5,
+        itemBuilder: (context, index) => SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.all(5),
+            padding: const EdgeInsets.all(5),
             child: Column(
               children: [
                 CircleAvatar(
-                  radius: 30,
-                  backgroundImage: NetworkImage(
-                      "https://cdn.sanity.io/images/czqk28jt/prod_bk_us/2b60390402530831a1e97c98d699337a5eefad6c-2000x1000.png?w=650&q=80&fit=max&auto=format"),
+                  radius: 35,
+                  backgroundImage: image,
                 ),
                 Text(
-                  "Meal",
-                  style: TextStyle(color: Colors.black),
+                  mealName,
+                  style: const TextStyle(color: Colors.black),
                 )
               ],
             ),

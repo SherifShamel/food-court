@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:food_court/core/config/application_theme_manager/theme_manager.dart';
-import 'package:food_court/presentation/features/filter_feature/widgets/category_widget.dart';
-import 'package:food_court/presentation/features/filter_feature/widgets/rating_widget.dart';
+
+import '../../../../core/config/application_theme_manager/theme_manager.dart';
+import '../widgets/category_widget.dart';
+import '../widgets/price_widget.dart';
+import '../widgets/rating_widget.dart';
 
 class FilterScreen extends StatelessWidget {
   const FilterScreen({Key? key}) : super(key: key);
@@ -17,22 +19,21 @@ class FilterScreen extends StatelessWidget {
       "Sandwich",
       "Sandwich",
     ];
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Filter By Category"),
-        actions: [
-          TextButton(
-            onPressed: () {},
-            child: const Text("Reset"),
-          ),
-        ],
-      ),
-      body: Center(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text("Filter By Category"),
+          actions: [
+            TextButton(
+              onPressed: () {},
+              child: const Text("Reset"),
+            ),
+          ],
+        ),
+        body: Column(
           children: [
             const Text(
-              "Category",
+              "Search By Category",
               style:
               TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
             ),
@@ -40,6 +41,7 @@ class FilterScreen extends StatelessWidget {
               child: GridView.builder(
                 itemCount: categories.length,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  childAspectRatio: 5 / 3,
                   crossAxisCount: 3,
                 ),
                 itemBuilder: (context, index) => CategoryWidget(
@@ -47,24 +49,56 @@ class FilterScreen extends StatelessWidget {
                 ),
               ),
             ),
+            const Text(
+              "Search By Rating",
+              style:
+              TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
             SizedBox(
-                height: 50,
-                // width: 50,
-                child: GridView.builder(
-                  // physics: ScrollPhysics(),
-                  scrollDirection: Axis.horizontal,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    mainAxisSpacing: 5.5,
-                    crossAxisCount: 1,
-                  ),
-                  itemBuilder: (context, index) =>
-                  const RatingWidget(rating: "1.0"),
-                )),
+              height: 50,
+              child: GridView.builder(
+                itemCount: 5,
+                // physics: ScrollPhysics(),
+                scrollDirection: Axis.horizontal,
+                shrinkWrap: true,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  mainAxisSpacing: 15,
+                  crossAxisCount: 1,
+                ),
+                itemBuilder: (context, index) =>
+                const RatingWidget(rating: "1.0"),
+              ),
+            ),
+            const Text(
+              "Search By Price Range",
+              style:
+              TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(
+              height: 40,
+              child: GridView.builder(
+                itemCount: 5,
+                // physics: ScrollPhysics(),
+                scrollDirection: Axis.horizontal,
+                shrinkWrap: true,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  mainAxisSpacing: 15,
+                  crossAxisCount: 1,
+                ),
+                itemBuilder: (context, index) => const PriceWidget(),
+              ),
+            ),
+            const SizedBox(
+              height: 30,
+            ),
             ElevatedButton(
               style: const ButtonStyle(
                 padding: MaterialStatePropertyAll(EdgeInsets.all(20)),
                 backgroundColor: MaterialStatePropertyAll(
-                  ApplicationThemeManager.primaryColor,
+                  ApplicationThemeManager.myPurple,
                 ),
               ),
               onPressed: () {},

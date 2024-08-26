@@ -7,7 +7,6 @@ class RatingWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // height: 30,
       decoration: const BoxDecoration(
         color: Colors.grey,
       ),
