@@ -2,10 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:food_court/core/config/utils/size_config.dart';
 import 'package:food_court/core/widgets/custom_buttons.dart';
 import 'package:food_court/presentation/features/welcome_feature/widgets/custom_page_view.dart';
-import 'package:introduction_screen/introduction_screen.dart';
 
-import '../../../../core/config/routes/page_route_names.dart';
-import '../../../../main.dart';
 
 class WelcomeScreenBody extends StatelessWidget {
   const WelcomeScreenBody({super.key});

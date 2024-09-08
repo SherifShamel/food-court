@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:food_court/core/config/application_theme_manager/theme_manager.dart';
 import 'package:food_court/domain/entity/meal_entity.dart';
 
 import 'elevated_item_widget.dart';

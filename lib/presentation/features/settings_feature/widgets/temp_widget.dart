@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_court/domain/entity/meal_entity.dart';
 
-import '../../../../core/config/application_theme_manager/theme_manager.dart';
 
 class TempWidget extends StatelessWidget {
   final MealEntity categoryData;
