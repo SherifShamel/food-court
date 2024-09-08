@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_court/presentation/features/settings_feature/view_model/cubit.dart';
 import 'package:food_court/presentation/features/settings_feature/view_model/states.dart';
+import 'package:food_court/presentation/features/settings_feature/widgets/temp_widget.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({Key? key}) : super(key: key);
@@ -39,19 +40,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 var data = state.mealEntity;
                 return ListView.builder(
                   itemCount: data.length,
-                  itemBuilder: (context, index) => Center(
-                    child: Column(
-                      children: [
-                        Text(
-                          data[index].mealName,
-                        ),
-                        Image.network(
-                          data[index].mealUrl,
-                          height: 200,
-                          width: 200,
-                        )
-                      ],
-                    ),
+                  itemBuilder: (context, index) => TempWidget(
+                    categoryData: state.mealEntity[index],
                   ),
                 );
               }

@@ -2,7 +2,7 @@ class MealEntity {
   final String mealName;
   final String mealUrl;
   final String mealRate;
-  final String mealPrice;
+  final num mealPrice;
 
   MealEntity({
     required this.mealName,

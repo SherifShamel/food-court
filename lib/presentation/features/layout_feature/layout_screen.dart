@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../core/config/application_theme_manager/theme_manager.dart';
 import '../category_feature/pages/category_screen.dart';
 import '../favorite_feature/favorite_screen.dart';
 import '../home_feature/pages/home_screen.dart';
@@ -40,7 +41,14 @@ class _LayoutScreenState extends State<LayoutScreen> {
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.category_outlined),
-              label: "Categories",
+              label: "Menu",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.shopping_cart_outlined,
+              ),
+              backgroundColor: ApplicationThemeManager.myPurple,
+              label: "Cart",
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.favorite_outline_rounded),

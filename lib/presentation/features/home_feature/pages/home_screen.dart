@@ -44,14 +44,14 @@ class _HomeScreenState extends State<HomeScreen> {
               icon: const Icon(Icons.filter_alt_outlined)),
         ],
       ),
-      body: const SingleChildScrollView(
+      body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(12.0),
+          padding: const EdgeInsets.all(12.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
@@ -70,56 +70,68 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ],
               ),
-              CarouselItemWidget(),
-              SizedBox(height: 20),
+              const CarouselItemWidget(),
+              const SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
+                  const Text(
                     "Categories",
                     style: TextStyle(color: Colors.black),
                   ),
                   Row(
                     children: [
-                      Text(
-                        "See all",
-                        style:
-                            TextStyle(color: ApplicationThemeManager.myPurple),
+                      InkWell(
+                        onTap: () {
+                          navigatorKey.currentState
+                              ?.pushNamed(PageRouteNames.categoryScreen);
+                        },
+                        child: const Text(
+                          "See all",
+                          style: TextStyle(
+                              color: ApplicationThemeManager.myPurple),
+                        ),
                       ),
-                      Icon(Icons.keyboard_arrow_right)
+                      const Icon(Icons.keyboard_arrow_right)
                     ],
                   ),
                 ],
               ),
-              SizedBox(height: 5),
-              AvatarWidget(
+              const SizedBox(height: 5),
+              const AvatarWidget(
                 image: AssetImage("assets/menu_images/IMG-20240815-WA0006.jpg"),
                 mealName: 'Mashweyat',
               ),
-              SizedBox(
+              const SizedBox(
                 height: 18,
               ),
-              Row(
+               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
+                  const Text(
                     "Categories",
                     style: TextStyle(color: Colors.black),
                   ),
                   Row(
                     children: [
-                      Text(
-                        "See all",
-                        style:
-                            TextStyle(color: ApplicationThemeManager.myPurple),
+                      InkWell(
+                        onTap: () {
+                          navigatorKey.currentState
+                              ?.pushNamed(PageRouteNames.categoryScreen);
+                        },
+                        child: const Text(
+                          "See all",
+                          style:
+                              TextStyle(color: ApplicationThemeManager.myPurple),
+                        ),
                       ),
-                      Icon(Icons.keyboard_arrow_right)
+                      const Icon(Icons.keyboard_arrow_right)
                     ],
                   ),
                 ],
               ),
-              SizedBox(height: 5),
-              AvatarWidget(
+              const SizedBox(height: 5),
+              const AvatarWidget(
                 image: AssetImage("assets/menu_images/IMG-20240815-WA0004.jpg"),
                 mealName: 'Sambousa',
               ),

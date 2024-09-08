@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_court/generated/assets.dart';
 
 import '../../../core/config/routes/page_route_names.dart';
@@ -18,6 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     Timer(const Duration(seconds: 1), () {
       navigatorKey.currentState!.pushReplacementNamed(PageRouteNames.welcome);
+      
     });
     super.initState();
   }
