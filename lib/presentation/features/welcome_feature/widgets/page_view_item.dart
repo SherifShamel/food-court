@@ -18,14 +18,18 @@ class PageViewItem extends StatelessWidget {
           height: SizeConfig.defaultSize! * 17,
           fit: BoxFit.cover,
         ),
-        const VerticalSpace(value: 5,),
+        const VerticalSpace(value: 2.5,),
         Text(title!,style: const TextStyle(
           fontSize: 20,
           color: Color(0xFF2f2e41),
           fontWeight: FontWeight.w600,
         ),),
-        const VerticalSpace(value: 2.5,),
-        Text(description!),
+        const VerticalSpace(value: 1.2,),
+        Text(description!, style: const TextStyle(
+          fontSize: 18,
+          color: Color(0xFF2f2e41),
+          fontWeight: FontWeight.w600,
+        ),),
       ],
     );
   }

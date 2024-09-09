@@ -3,11 +3,15 @@ import 'package:food_court/generated/assets.dart';
 import 'package:food_court/presentation/features/welcome_feature/widgets/page_view_item.dart';
 
 class CustomPageView extends StatelessWidget {
-  const CustomPageView({super.key});
+  const CustomPageView({required this.pageController, super.key});
+
+  final PageController? pageController;
 
   @override
   Widget build(BuildContext context) {
     return PageView(
+      // scrollDirection: Axis.vertical,
+      controller: pageController,
       children: const [
         PageViewItem(
           title: "Hello1",
