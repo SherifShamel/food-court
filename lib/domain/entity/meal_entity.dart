@@ -1,13 +1,15 @@
 class MealEntity {
+  // final String status;
+  // final String mealUrl;
+  // final String mealRate;
   final String mealName;
-  final String mealUrl;
-  final String mealRate;
-  final num mealPrice;
+  // final num mealPrice;
 
-  MealEntity({
+  MealEntity( {
     required this.mealName,
-    required this.mealUrl,
-    required this.mealRate,
-    required this.mealPrice,
+    // required this.status,
+    // required this.mealUrl,
+    // required this.mealRate,
+    // required this.mealPrice,
   });
 }

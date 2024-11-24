@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 
 class ApplicationThemeManager {
-  static const myPurple = Color(0xff8D1EE4);
+  static const myGreenBackground = Color(0xff347928);
+  static const primaryTextColor = Color(0xffFCCD2A);
   static ThemeData theme = ThemeData(
-    primaryColor: const Color(0xfffcb93a),
+    scaffoldBackgroundColor:const Color(0xffFFFBE6),
+    primaryColor: const Color(0xffC0EBA6),
     primaryColorDark: const Color(0xff121312),
     appBarTheme: const AppBarTheme(
-      backgroundColor: myPurple,
+      backgroundColor: myGreenBackground,
       centerTitle: true,
       titleTextStyle: TextStyle(
         color: Colors.white,
@@ -52,7 +54,7 @@ class ApplicationThemeManager {
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       backgroundColor: Colors.white,
       type: BottomNavigationBarType.fixed,
-      selectedItemColor: myPurple,
+      selectedItemColor: myGreenBackground,
       unselectedItemColor: Colors.black,
       unselectedIconTheme: IconThemeData(
         color: Colors.black,
@@ -65,14 +67,14 @@ class ApplicationThemeManager {
         color: Colors.black,
       ),
       selectedIconTheme: IconThemeData(
-        color: myPurple,
+        color: myGreenBackground,
         size: 30,
       ),
       selectedLabelStyle: TextStyle(
         fontFamily: "Gotham",
         fontSize: 15,
         fontWeight: FontWeight.bold,
-        color: myPurple,
+        color: myGreenBackground,
       ),
     ),
   );

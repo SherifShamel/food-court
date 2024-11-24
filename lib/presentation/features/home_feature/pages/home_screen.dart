@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:food_court/core/config/application_theme_manager/theme_manager.dart';
-import 'package:food_court/core/config/routes/page_route_names.dart';
+import 'package:food_court/presentation/features/home_feature/widgets/home_body.dart';
 
-import '../../../../main.dart';
-import '../widgets/avatar_widget.dart';
-import '../widgets/carousel_item_widget.dart' show CarouselItemWidget;
+import '../view_model/cubit.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -17,34 +15,30 @@ class _HomeScreenState extends State<HomeScreen> {
   bool typing = false;
 
   @override
+  void initState() {
+    var vm = MealViewModel();
+    vm.getData();
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: typing
-            ? TextFormField()
-            : Text(
-                "Meals App",
-                style: TextStyle(
-                  color: ApplicationThemeManager.theme.primaryColor,
-                ),
-              ),
-        leading: IconButton(
-          icon: Icon(typing ? Icons.done : Icons.search),
-          onPressed: () {
-            setState(() {
-              typing = !typing;
-            });
-          },
+        appBar: AppBar(
+          title: const Text("Matba5 Rannem"),
         ),
-        actions: [
-          IconButton(
-              onPressed: () {
-                navigatorKey.currentState!.pushNamed(PageRouteNames.filter);
-              },
-              icon: const Icon(Icons.filter_alt_outlined)),
-        ],
-      ),
-      body: SingleChildScrollView(
+        drawer: Drawer(
+          child: InkWell(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: const Center(
+              child: Text("Make An Order!"),
+            ),
+          ),
+        ),
+        body: const HomeBody()
+        /*SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(12.0),
           child: Column(
@@ -105,7 +99,7 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(
                 height: 18,
               ),
-               Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const Text(
@@ -121,8 +115,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         },
                         child: const Text(
                           "See all",
-                          style:
-                              TextStyle(color: ApplicationThemeManager.myPurple),
+                          style: TextStyle(
+                              color: ApplicationThemeManager.myPurple),
                         ),
                       ),
                       const Icon(Icons.keyboard_arrow_right)
@@ -138,7 +132,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
         ),
-      ),
-    );
+      ),*/
+        );
   }
 }

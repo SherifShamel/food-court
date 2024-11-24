@@ -4,7 +4,7 @@ import 'package:food_court/data/data_source/meals_data_source.dart';
 import 'package:food_court/data/data_source/meals_data_source_imp.dart';
 import 'package:food_court/data/repository_imp/meal_repository_imp.dart';
 import 'package:food_court/domain/repository/meal_repository.dart';
-import 'package:food_court/presentation/features/settings_feature/view_model/states.dart';
+import 'package:food_court/presentation/features/home_feature/view_model/states.dart';
 
 import '../../../../domain/use_cases/meal_use_case.dart';
 

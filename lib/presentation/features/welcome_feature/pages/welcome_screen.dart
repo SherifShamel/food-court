@@ -1,8 +1,7 @@
-import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:food_court/core/config/routes/page_route_names.dart';
 import 'package:food_court/core/config/utils/size_config.dart';
-import 'package:food_court/core/constants.dart';
+import 'package:food_court/core/providers/my_shared_prefs.dart';
 import 'package:food_court/core/widgets/custom_buttons.dart';
 import 'package:food_court/main.dart';
 import 'package:food_court/presentation/features/welcome_feature/widgets/custom_indicator.dart';
@@ -27,9 +26,19 @@ class _WelcomeScreenBodyState extends State<WelcomeScreenBody> {
     super.initState();
   }
 
+  void submit(){
+    MySharedPrefs.saveData(key: 'welcomeScreen', value: true).then((value) {
+      if(value) {
+        navigatorKey.currentState
+          ?.pushReplacementNamed(PageRouteNames.layout);
+      }
+    });
+
+  }
+
   @override
   Widget build(BuildContext context) {
-    // print(pageController!.page);
+
     return Scaffold(
       body: Stack(
         children: [
@@ -52,10 +61,7 @@ class _WelcomeScreenBodyState extends State<WelcomeScreenBody> {
               top: SizeConfig.defaultSize! * 10,
               right: 30,
               child: InkWell(
-                onTap: () {
-                  navigatorKey.currentState
-                      ?.pushReplacementNamed(PageRouteNames.layout);
-                },
+                onTap: submit,
                 child: const Text(
                   "Skip",
                   style: TextStyle(
@@ -77,8 +83,7 @@ class _WelcomeScreenBodyState extends State<WelcomeScreenBody> {
                       duration: const Duration(milliseconds: 300),
                       curve: Curves.easeIn);
                 } else {
-                  navigatorKey.currentState
-                      ?.pushReplacementNamed(PageRouteNames.layout);
+                  submit();
                 }
               },
               text: pageController!.hasClients

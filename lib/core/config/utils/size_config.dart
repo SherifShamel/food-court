@@ -7,8 +7,8 @@ class SizeConfig {
   static Orientation? orientation;
 
   void init(BuildContext context) {
-    screenWidth = MediaQuery.of(context).size.width;
-    screenHeight = MediaQuery.of(context).size.height;
+    screenWidth = MediaQuery.sizeOf(context).width;
+    screenHeight = MediaQuery.sizeOf(context).height;
     orientation = MediaQuery.of(context).orientation;
 
     defaultSize = orientation == Orientation.landscape

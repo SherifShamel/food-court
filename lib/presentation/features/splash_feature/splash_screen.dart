@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:food_court/core/providers/my_shared_prefs.dart';
 import 'package:food_court/generated/assets.dart';
 
 import '../../../core/config/routes/page_route_names.dart';
@@ -16,9 +17,11 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    Timer(const Duration(seconds: 1), () {
+    Future<bool> getData = MySharedPrefs.getData(key: 'welcomeScreen');
+    print(getData);
+    Timer(const Duration(seconds: 3), () async {
+      await getData ? navigatorKey.currentState!.pushReplacementNamed(PageRouteNames.layout):
       navigatorKey.currentState!.pushReplacementNamed(PageRouteNames.welcome);
-      
     });
     super.initState();
   }
@@ -27,10 +30,11 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Image.asset(
-          Assets.imgSplashImage,
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height,
-          fit: BoxFit.cover),
+        Assets.imgLogo,
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        fit: BoxFit.cover,
+      ),
     );
   }
 }

@@ -6,12 +6,14 @@ import 'meals_data_source.dart';
 
 class MealsDataSourceImp extends MealsDataSource {
   @override
-  CollectionReference<MealEntity> getAllMeals() {
+  Query<MealEntity> getAllMeals() {
     var db = FirebaseFirestore.instance;
-    return db.collection("meals").withConverter<MealDataModel>(
+    final docRef = db.collection("allMeals").withConverter<MealDataModel>(
           fromFirestore: (snapshot, _) =>
               MealDataModel.fromJson(snapshot.data()!),
           toFirestore: (mealViewModel, _) => mealViewModel.toJson(),
         );
+    // final docy = docRef.doc("").get();
+    return docRef;
   }
 }

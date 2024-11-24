@@ -1,51 +1,92 @@
 import 'package:flutter/material.dart';
+import 'package:food_court/core/config/application_theme_manager/theme_manager.dart';
 import 'package:food_court/core/config/routes/page_route_names.dart';
+import 'package:food_court/generated/assets.dart';
 import 'package:food_court/main.dart';
+import 'package:food_court/presentation/features/item_screen/pages/item_screen.dart';
+import 'package:food_court/presentation/features/meals_feature/pages/meals_screen.dart';
 
 import '../../../../domain/entity/meal_entity.dart';
+import '../../../../model/meal_model.dart';
+import '../pages/category_screen.dart';
 
 class CategoryWidget extends StatelessWidget {
-  final MealEntity categoryData;
+  final String mealCategory, mealCategoryId, statusId, mealImage;
 
-  const CategoryWidget({required this.categoryData, Key? key})
-      : super(key: key);
+  const CategoryWidget({
+    required this.mealCategoryId,
+    required this.mealCategory,
+    required this.statusId,
+    required this.mealImage,
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => navigatorKey.currentState!.pushNamed(
-        PageRouteNames.itemScreen,
-        arguments: categoryData,
-      ),
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(15),
-            child: Container(
-              decoration: BoxDecoration(
-                color: Colors.grey.shade800,
-                borderRadius: BorderRadius.circular(15),
-              ),
-              height: double.infinity,
-              width: double.infinity,
-              child: Image.network(
-                categoryData.mealUrl,
-                opacity: const AlwaysStoppedAnimation(0.4),
-                fit: BoxFit.cover,
-              ),
-            ),
+      onTap: () => navigatorKey.currentState!.push(
+        MaterialPageRoute(
+          builder: (BuildContext context) => MealsScreen(
+            title: mealCategory,
+            categoryId: mealCategoryId,
+            statusId: statusId,
           ),
-          Text(
-            categoryData.mealName ?? "no no no",
-            style: const TextStyle(
-                color: Colors.white, fontWeight: FontWeight.bold),
-            textAlign: TextAlign.center,
-            overflow: TextOverflow.ellipsis,
-            maxLines: 2,
-          ),
-        ],
+        ),
       ),
+      child: mealCategoryId.isNotEmpty
+          ? SizedBox(
+              height: 200,
+              child: Card(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8)),
+                clipBehavior: Clip.hardEdge,
+                elevation: 2,
+                child: Stack(
+                  clipBehavior: Clip.hardEdge,
+                  alignment: Alignment.center,
+                  children: [
+                    mealImage != ""
+                        ? FadeInImage(
+                            placeholder: const AssetImage(
+                              'assets/img/logo.jpg',
+                            ),
+                            image: NetworkImage(mealImage),
+                            height: 200,
+                            width: double.infinity,
+                            fit: BoxFit.cover,
+                          )
+                        : const Text(
+                            "Oops! \nImage is not available at the moment..",
+                            textAlign: TextAlign.center,
+                          ),
+                    Positioned(
+                      left: 0,
+                      bottom: 0,
+                      right: 0,
+                      child: Container(
+                        color: Colors.black54,
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 6,
+                          horizontal: 30,
+                        ),
+                        child: Text(
+                          mealCategory,
+                          textAlign: TextAlign.center,
+                          overflow: TextOverflow.ellipsis,
+                          // maxLines: 1,
+                          // softWrap: true,
+                          style: TextStyle(
+                            color: ApplicationThemeManager.theme.primaryColor,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            )
+          : const CircularProgressIndicator(),
     );
   }
 }

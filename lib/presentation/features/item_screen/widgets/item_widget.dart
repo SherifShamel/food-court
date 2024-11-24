@@ -17,9 +17,9 @@ class ItemWidget extends StatelessWidget {
         Container(
           height: MediaQuery.of(context).size.height * 0.5,
           padding: const EdgeInsets.all(10),
-          child: Image.network(
-            mealEntity.mealUrl,
-            fit: BoxFit.fill,
+          child: Text(
+            mealEntity.mealName,
+            // fit: BoxFit.fill,
           ),
         ),
         Container(

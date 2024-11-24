@@ -26,43 +26,44 @@ class ElevatedItemWidget extends StatelessWidget {
           context: context,
           builder: (context) => SizedBox(
             height: MediaQuery.of(context).size.height * 0.4,
-            child: Column(
+            child: const Column(
               children: [
-                Text(
-                  mealEntity.mealName,
-                  style: ApplicationThemeManager.theme.textTheme.bodyMedium,
-                ),
+                // Text(
+                //   mealEntity.status,
+                //   style: ApplicationThemeManager.theme.textTheme.bodyMedium,
+                // ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    const Text("gahez: "),
-                    Text("${mealEntity.mealPrice ?? "FREE"}"),
-                    Text(
-                      "${mealEntity.mealPrice + 5 ?? "FREE"}",
-                      style: const TextStyle(
-                          decoration: TextDecoration.lineThrough, fontSize: 16),
-                    )
+                    // Text(
+                        // "${mealEntity.mealName.toUpperCase()} ${mealEntity.status.toUpperCase()} : ${mealEntity.status}"),
+                    // Text("${mealEntity.mealPrice ?? "FREE"}"),
+                    // Text(
+                    //   "${mealEntity.mealPrice + 5 ?? "FREE"}",
+                    //   style: const TextStyle(
+                    //       decoration: TextDecoration.lineThrough, fontSize: 16),
+                    // )
                   ],
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    const Text("Raw : "),
-                    Text("${mealEntity.mealPrice - 2}"),
-                    Text(
-                      "${mealEntity.mealPrice + 3 ?? "FREE"}",
-                      style: const TextStyle(
-                          decoration: TextDecoration.lineThrough, fontSize: 16),
-                    )
-                  ],
-                ),
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                // children: [
+                //   const Text("Raw : "),
+                // Text("${mealEntity.mealPrice - 2}"),
+                // Text(
+                //   "${mealEntity.mealPrice + 3 ?? "FREE"}",
+                //   style: const TextStyle(
+                //       decoration: TextDecoration.lineThrough, fontSize: 16),
+                // )
+                // ],
+                // ),
               ],
             ),
           ),
         );
       },
       child: Text(
-        "${mealEntity.mealName} : ${mealEntity.mealPrice != "" ? mealEntity.mealPrice : "FREE!"}",
+        mealEntity.mealName,
         style: ApplicationThemeManager.theme.textTheme.bodyMedium,
       ),
     );
