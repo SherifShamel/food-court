@@ -87,7 +87,7 @@ class _WelcomeScreenBodyState extends State<WelcomeScreenBody> {
                 }
               },
               text: pageController!.hasClients
-                  ? (pageController?.page == 3 ? "Get Started" : "Next")
+                  ? (pageController?.page == 2 ? "Get Started" : "Next")
                   : "Next",
             ),
           ),

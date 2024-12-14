@@ -17,7 +17,7 @@ class CustomIndicator extends StatelessWidget {
           shape: RoundedRectangleBorder(
               side: const BorderSide(color: kMainColor),
               borderRadius: BorderRadius.circular(8))),
-      dotsCount: 4,
+      dotsCount: 3,
       position: dotIndex!,
     );
   }

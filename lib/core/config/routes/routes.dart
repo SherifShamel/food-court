@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:food_court/core/config/routes/page_route_names.dart';
-import 'package:food_court/presentation/features/home_feature/pages/home_screen.dart';
-import 'package:food_court/presentation/features/item_screen/pages/item_screen.dart';
 import 'package:food_court/presentation/features/welcome_feature/widgets/welcome_view_body.dart';
 
 import '../../../presentation/features/layout_feature/layout_screen.dart';

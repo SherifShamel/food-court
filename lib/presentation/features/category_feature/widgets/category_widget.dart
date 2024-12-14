@@ -1,14 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_court/core/config/application_theme_manager/theme_manager.dart';
-import 'package:food_court/core/config/routes/page_route_names.dart';
-import 'package:food_court/generated/assets.dart';
 import 'package:food_court/main.dart';
-import 'package:food_court/presentation/features/item_screen/pages/item_screen.dart';
 import 'package:food_court/presentation/features/meals_feature/pages/meals_screen.dart';
-
-import '../../../../domain/entity/meal_entity.dart';
-import '../../../../model/meal_model.dart';
-import '../pages/category_screen.dart';
 
 class CategoryWidget extends StatelessWidget {
   final String mealCategory, mealCategoryId, statusId, mealImage;

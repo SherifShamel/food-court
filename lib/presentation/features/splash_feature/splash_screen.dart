@@ -18,10 +18,12 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     Future<bool> getData = MySharedPrefs.getData(key: 'welcomeScreen');
-    print(getData);
     Timer(const Duration(seconds: 3), () async {
-      await getData ? navigatorKey.currentState!.pushReplacementNamed(PageRouteNames.layout):
-      navigatorKey.currentState!.pushReplacementNamed(PageRouteNames.welcome);
+      await getData
+          ? navigatorKey.currentState!
+              .pushReplacementNamed(PageRouteNames.layout)
+          : navigatorKey.currentState!
+              .pushReplacementNamed(PageRouteNames.welcome);
     });
     super.initState();
   }

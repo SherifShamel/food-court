@@ -10,29 +10,29 @@ class CustomPageView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PageView(
-      // scrollDirection: Axis.vertical,
       controller: pageController,
       children: const [
         PageViewItem(
-          title: "Hello1",
-          description: "HELLO HELLO1",
+          title: "Welcome",
+          description: "We have gained a great customer today!",
           image: Assets.imgChoose,
         ),
         PageViewItem(
-          title: "Hello2",
-          description: "HELLO HELLO2",
+          title: "Order Before 2 Days",
+          description: "For Any Order You Have to Order 2 Days before",
           image: Assets.imgApps,
         ),
         PageViewItem(
-          title: "Hello3",
-          description: "HELLO HELLO3",
+          title: "Add To Favourites",
+          description:
+              "You Can Add Your Favourite Meals To The Favourites Section",
           image: Assets.imgHeart,
         ),
-        PageViewItem(
-          title: "Hello4",
-          description: "HELLO HELLO4",
-          image: Assets.imgFinaly,
-        ),
+        // PageViewItem(
+        //   title: "Hello4",
+        //   description: "HELLO HELLO4",
+        //   image: Assets.imgFinaly,
+        // ),
       ],
     );
   }

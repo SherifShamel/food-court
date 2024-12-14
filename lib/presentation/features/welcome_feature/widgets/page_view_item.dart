@@ -31,16 +31,21 @@ class PageViewItem extends StatelessWidget {
             color: Color(0xFF2f2e41),
             fontWeight: FontWeight.w600,
           ),
+          textAlign: TextAlign.center,
         ),
         const VerticalSpace(
           value: 1.2,
         ),
-        Text(
-          description!,
-          style: const TextStyle(
-            fontSize: 18,
-            color: Color(0xFF2f2e41),
-            fontWeight: FontWeight.w600,
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10),
+          child: Text(
+            description!,
+            style: const TextStyle(
+              fontSize: 18,
+              color: Color(0xFF2f2e41),
+              fontWeight: FontWeight.w600,
+            ),
+            textAlign: TextAlign.center,
           ),
         ),
       ],

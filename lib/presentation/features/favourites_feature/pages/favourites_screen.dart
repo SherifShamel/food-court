@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:food_court/core/providers/favourite_provider.dart';
 import 'package:food_court/presentation/features/meals_feature/widgets/meal_widget.dart';
@@ -16,11 +15,9 @@ class FavouritesScreen extends ConsumerWidget {
         ),
         body: meals.isEmpty
             ? Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: Center(
-
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: Center(
                   child: Column(
-
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
@@ -36,7 +33,7 @@ class FavouritesScreen extends ConsumerWidget {
                     ],
                   ),
                 ),
-            )
+              )
             : ListView.builder(
                 itemBuilder: (context, index) =>
                     MealWidget(mealModel: meals[index]),

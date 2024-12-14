@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:food_court/core/config/utils/size_config.dart';
 import 'package:food_court/core/providers/favourite_provider.dart';
-import 'package:food_court/generated/assets.dart';
 import 'package:food_court/model/meal_model.dart';
 
 import '../../../../core/config/application_theme_manager/theme_manager.dart';

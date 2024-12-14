@@ -1,9 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:food_court/core/config/application_theme_manager/theme_manager.dart';
-import 'package:food_court/domain/entity/meal_entity.dart';
-import 'package:food_court/firebase/firebase_utils.dart';
-import 'package:food_court/model/meal_model.dart';
 
 import '../../category_feature/widgets/category_widget.dart';
 
@@ -53,10 +50,11 @@ class _CategoryScreenState extends State<CategoryScreen> {
               FutureBuilder(
                 future: getSubCategories(),
                 builder: (context, snapshot) {
-                  // print(subCategoryData.length);
                   if (snapshot.hasError) {
                     return Center(
-                      child: Text(snapshot.error.toString()),
+                      child: Text(
+                        snapshot.error.toString(),
+                      ),
                     );
                   }
 
@@ -78,8 +76,6 @@ class _CategoryScreenState extends State<CategoryScreen> {
                       //   mainAxisSpacing: 10,
                       // ),
                       itemBuilder: (context, index) {
-                        // print(data[index].id);
-
                         return CategoryWidget(
                           statusId: widget.categoryId,
                           mealCategoryId: data[index].id,

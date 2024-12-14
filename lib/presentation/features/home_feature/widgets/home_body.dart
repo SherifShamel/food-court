@@ -1,10 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_court/core/config/application_theme_manager/theme_manager.dart';
-import 'package:food_court/firebase/firebase_utils.dart';
 import 'package:food_court/main.dart';
-import 'package:food_court/model/meal_model.dart';
 import 'package:food_court/presentation/features/category_feature/pages/category_screen.dart';
 
 class HomeBody extends StatefulWidget {
@@ -33,7 +30,9 @@ class _HomeBodyState extends State<HomeBody> {
           return const Center(child: Text("Something went wrong!"));
         }
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return const Center(child: CircularProgressIndicator());
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
         }
 
         return ListView.builder(

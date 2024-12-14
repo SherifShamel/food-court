@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:food_court/core/config/application_theme_manager/theme_manager.dart';
 import 'package:food_court/presentation/features/home_feature/widgets/home_body.dart';
 
 import '../view_model/cubit.dart';
