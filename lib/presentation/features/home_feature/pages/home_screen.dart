@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_court/presentation/features/home_feature/widgets/home_body.dart';
+import 'package:food_court/presentation/features/home_feature/widgets/my_custom_drawer.dart';
 
 import '../view_model/cubit.dart';
 
@@ -26,16 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
         appBar: AppBar(
           title: const Text("Matba5 Rannem"),
         ),
-        drawer: Drawer(
-          child: InkWell(
-            onTap: () {
-              Navigator.pop(context);
-            },
-            child: const Center(
-              child: Text("Make An Order!"),
-            ),
-          ),
-        ),
+        drawer: const MyCustomDrawer(),
         body: const HomeBody()
         /*SingleChildScrollView(
         child: Padding(
@@ -135,3 +127,5 @@ class _HomeScreenState extends State<HomeScreen> {
         );
   }
 }
+
+

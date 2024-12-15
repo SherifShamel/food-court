@@ -34,9 +34,18 @@ class MealWidget extends ConsumerWidget {
                     width: double.infinity,
                     fit: BoxFit.cover,
                   )
-                : const Text(
-                    "Oops! \nImage is not available at the moment..",
-                    textAlign: TextAlign.center,
+                : SizedBox(
+                    height: MediaQuery.sizeOf(context).height * 0.3,
+                    child: const Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(Icons.error),
+                        Text(
+                          "Oops! \nImage is not available at the moment..",
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
+                    ),
                   ),
             Positioned(
               left: 0,
@@ -56,7 +65,7 @@ class MealWidget extends ConsumerWidget {
                         mealModel.mealName,
                         textAlign: TextAlign.center,
                         overflow: TextOverflow.ellipsis,
-                        // maxLines: 1,
+                        maxLines: 2,
                         // softWrap: true,
                         style: TextStyle(
                           color: ApplicationThemeManager.theme.primaryColor,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:food_court/core/providers/favourite_provider.dart';
+import 'package:food_court/presentation/features/home_feature/widgets/my_custom_drawer.dart';
 import 'package:food_court/presentation/features/meals_feature/widgets/meal_widget.dart';
 
 class FavouritesScreen extends ConsumerWidget {
@@ -10,6 +11,7 @@ class FavouritesScreen extends ConsumerWidget {
   Widget build(BuildContext context, ref) {
     final meals = ref.watch(favouriteProvider);
     return Scaffold(
+        drawer: const MyCustomDrawer(),
         appBar: AppBar(
           title: const Text("Favourites"),
         ),

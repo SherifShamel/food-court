@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'firebase_options.dart';
 
 import 'core/config/application_theme_manager/theme_manager.dart';
@@ -12,8 +11,8 @@ import 'core/config/routes/routes.dart';
 GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 void main() async {
-  // make sure every async task is done.
-  WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding
+      .ensureInitialized(); // make sure every async task is done.
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
