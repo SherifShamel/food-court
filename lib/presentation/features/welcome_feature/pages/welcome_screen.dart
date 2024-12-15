@@ -33,6 +33,10 @@ class _WelcomeScreenBodyState extends State<WelcomeScreenBody> {
           ?.pushReplacementNamed(PageRouteNames.layout);
       }
     });
+  }
+  void skipPage(){
+        navigatorKey.currentState
+            ?.pushReplacementNamed(PageRouteNames.layout);
 
   }
 
@@ -61,7 +65,7 @@ class _WelcomeScreenBodyState extends State<WelcomeScreenBody> {
               top: SizeConfig.defaultSize! * 10,
               right: 30,
               child: InkWell(
-                onTap: submit,
+                onTap: skipPage,
                 child: const Text(
                   "Skip",
                   style: TextStyle(
@@ -71,19 +75,41 @@ class _WelcomeScreenBodyState extends State<WelcomeScreenBody> {
                 ),
               ),
             ),
+
           ),
+          Visibility(
+            visible: pageController!.hasClients
+                ? (pageController?.page == 3 ? false : true)
+                : true,
+            child: Positioned(
+              top: SizeConfig.defaultSize! * 10,
+              left: 30,
+              child: InkWell(
+                onTap: submit,
+                child: const Text(
+                  "Don't show this again",
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: Color(0xFF898989),
+                  ),
+                ),
+              ),
+            ),
+
+          ),
+
           Positioned(
             bottom: SizeConfig.defaultSize! * 8,
             right: SizeConfig.defaultSize! * 10,
             left: SizeConfig.defaultSize! * 10,
             child: CustomGeneralButton(
               onTap: () {
-                if (pageController!.page! < 3) {
+                if (pageController!.page! < 2) {
                   pageController?.nextPage(
                       duration: const Duration(milliseconds: 300),
                       curve: Curves.easeIn);
                 } else {
-                  submit();
+                  skipPage();
                 }
               },
               text: pageController!.hasClients

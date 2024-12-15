@@ -11,8 +11,8 @@ class MySharedPrefs {
     return await prefs.setDouble(key, value);
   }
 
-  static Future<bool> getData({required String key}) async{
+  static Future<bool> getData({required String key}) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    return  prefs.getBool(key) ?? false;
+    return prefs.getBool(key) ?? false;
   }
 }

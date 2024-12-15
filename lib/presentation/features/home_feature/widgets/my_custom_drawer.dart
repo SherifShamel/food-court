@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_court/core/config/application_theme_manager/theme_manager.dart';
 
 class MyCustomDrawer extends StatelessWidget {
   const MyCustomDrawer({
@@ -13,7 +14,9 @@ class MyCustomDrawer extends StatelessWidget {
         child: const Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(height: 24),
+            // SizedBox(height: 24),
+            Divider(thickness: 1),
+            SizedBox(height: 20),
             Text(
               "To Make An Order",
               style: TextStyle(
@@ -21,9 +24,13 @@ class MyCustomDrawer extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 15),
+            SizedBox(height: 20),
+            Divider(
+              thickness: 1,
+            ),
+            SizedBox(height: 20),
             Text(
-              "Just Call Raneem On 0123456789",
+              "Just Call Us On 0123456789",
             ),
             SizedBox(height: 15),
             Text(
