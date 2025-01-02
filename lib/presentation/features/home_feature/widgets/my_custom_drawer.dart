@@ -1,48 +1,72 @@
-import 'package:flutter/material.dart';
-import 'package:food_court/core/config/application_theme_manager/theme_manager.dart';
+import 'dart:io';
 
-class MyCustomDrawer extends StatelessWidget {
+import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+class MyCustomDrawer extends StatefulWidget {
   const MyCustomDrawer({
     super.key,
   });
+
+  @override
+  State<MyCustomDrawer> createState() => _MyCustomDrawerState();
+}
+
+class _MyCustomDrawerState extends State<MyCustomDrawer> {
+  String whatsappUrl = 'https://wa.me/+201150028603';
 
   @override
   Widget build(BuildContext context) {
     return Drawer(
       child: InkWell(
         onTap: () {},
-        child: const Column(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // SizedBox(height: 24),
-            Divider(thickness: 1),
-            SizedBox(height: 20),
-            Text(
+            const Divider(thickness: 1),
+            const SizedBox(height: 20),
+            const Text(
               "To Make An Order",
               style: TextStyle(
                 fontSize: 22,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 20),
-            Divider(
+            const SizedBox(height: 20),
+            const Divider(
               thickness: 1,
             ),
-            SizedBox(height: 20),
-            Text(
-              "Just Call Us On 0123456789",
+            const SizedBox(height: 20),
+            InkWell(
+              onTap: () {
+                goToWhatsapp();
+              },
+              child: const Text(
+                "Just Call Us On 01150028603",
+                style: TextStyle(
+                  decoration: TextDecoration.underline,
+                  color: Colors.blue,
+                ),
+              ),
             ),
-            SizedBox(height: 15),
-            Text(
+            const SizedBox(height: 15),
+            const Text(
               "You Can Pay Cash On Delivery,\n Or Online On The Same Number",
             ),
-            SizedBox(height: 50),
-            Text(
+            const SizedBox(height: 50),
+            const Text(
               "Bon appétit <3",
             ),
           ],
         ),
       ),
     );
+  }
+
+  goToWhatsapp() async {
+    if (Platform.isAndroid) {
+      launchUrl(Uri.parse(
+          '$whatsappUrl?text= ${Uri.parse("Hello! \n I want to make an order!")}'));
+    }
   }
 }

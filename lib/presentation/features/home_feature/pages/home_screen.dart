@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:food_court/presentation/features/home_feature/widgets/home_body.dart';
 import 'package:food_court/presentation/features/home_feature/widgets/my_custom_drawer.dart';
 
-import '../view_model/cubit.dart';
-
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -13,13 +11,6 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   bool typing = false;
-
-  @override
-  void initState() {
-    var vm = MealViewModel();
-    vm.getData();
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -127,5 +118,3 @@ class _HomeScreenState extends State<HomeScreen> {
         );
   }
 }
-
-
