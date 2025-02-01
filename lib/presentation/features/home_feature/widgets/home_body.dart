@@ -66,10 +66,9 @@ class _HomeBodyState extends State<HomeBody> {
                 },
                 child: Text(
                   "${data[index]["status"]}",
-                  style: ApplicationThemeManager.theme.textTheme.bodySmall!.copyWith(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold
-                  ),
+                  style: ApplicationThemeManager.theme.textTheme.bodySmall!
+                      .copyWith(
+                          color: Colors.white, fontWeight: FontWeight.bold),
                   textAlign: TextAlign.center,
                 ),
               ),
