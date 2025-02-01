@@ -21,26 +21,13 @@ class MealsScreen extends StatefulWidget {
 }
 
 class _MealsScreenState extends State<MealsScreen> {
-  // List<QueryDocumentSnapshot> subCategoryData = [];
-  //
-  // getMeals() async {
-  //   QuerySnapshot querySnapshot = await FirebaseFirestore.instance
-  //       .collection("allMeals")
-  //       .doc(widget.statusId)
-  //       .collection("done")
-  //       .doc(widget.categoryId)
-  //       .collection("mealCategory")
-  //       .get();
-  //   subCategoryData.addAll(querySnapshot.docs);
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(
           widget.title,
-          style: TextStyle(
+          style: ApplicationThemeManager.theme.textTheme.bodyLarge!.copyWith(
             color: ApplicationThemeManager.theme.primaryColor,
           ),
         ),
@@ -62,18 +49,9 @@ class _MealsScreenState extends State<MealsScreen> {
           }
           if (snapshot.data!.isEmpty) {
             return Center(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    "Oh uh!..",
-                    style: Theme.of(context).textTheme.bodyLarge,
-                  ),
-                  Text(
-                    "it seems like there is no data here yet...",
-                    style: Theme.of(context).textTheme.bodyMedium,
-                  ),
-                ],
+              child: Text(
+                "الصورة غير متوفرة حاليا",
+                style: Theme.of(context).textTheme.bodyLarge,
               ),
             );
           }
@@ -83,26 +61,6 @@ class _MealsScreenState extends State<MealsScreen> {
             itemBuilder: (context, index) => MealWidget(
               mealModel: data[index],
             ),
-            /*Column(
-              children: [
-                Image.network(
-                  height: MediaQuery.of(context).size.height * 0.3,
-                  width: MediaQuery.of(context).size.width * 0.8,
-                  data[index].mealImage,
-                  fit: BoxFit.fill,
-                ),
-                Row(
-                  children: [
-                    Text(
-                      data[index].mealName,
-                    ),
-                    Text(
-                      data[index].mealPrice.toString(),
-                    ),
-                  ],
-                ),
-              ],
-            ),*/
             itemCount: data!.length,
           );
         },

@@ -49,8 +49,7 @@ class CategoryWidget extends StatelessWidget {
                             fit: BoxFit.cover,
                           )
                         : const Text(
-                            "Oops! \nImage is not available at the moment..",
-                            textAlign: TextAlign.center,
+                            "الصورة غير متوفرة حاليا",
                           ),
                     Positioned(
                       left: 0,

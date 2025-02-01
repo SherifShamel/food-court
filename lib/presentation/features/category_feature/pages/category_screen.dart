@@ -37,7 +37,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
         appBar: AppBar(
           title: Text(
             widget.category,
-            style: TextStyle(
+            style: ApplicationThemeManager.theme.textTheme.bodyLarge!.copyWith(
               color: ApplicationThemeManager.theme.primaryColor,
             ),
           ),
@@ -68,13 +68,6 @@ class _CategoryScreenState extends State<CategoryScreen> {
                   return Expanded(
                     child: ListView.builder(
                       itemCount: data.length,
-                      // gridDelegate:
-                      //     const SliverGridDelegateWithFixedCrossAxisCount(
-                      //   childAspectRatio: 5 / 6,
-                      //   crossAxisCount: 2,
-                      //   crossAxisSpacing: 10,
-                      //   mainAxisSpacing: 10,
-                      // ),
                       itemBuilder: (context, index) {
                         return CategoryWidget(
                           statusId: widget.categoryId,
@@ -82,49 +75,12 @@ class _CategoryScreenState extends State<CategoryScreen> {
                           mealCategory: data[index]["mealCategory"],
                           mealImage: data[index]["mealImage"],
                         );
-                        // Text(data[index]["status"]);
+
                       },
                     ),
                   );
                 },
               )
-              // BlocBuilder<MealViewModel, MealsStates>(
-              //   bloc: vm,
-              //   builder: (context, state) {
-              //     switch (state) {
-              //       case LoadingState():
-              //         {
-              //           return const Center(child: CircularProgressIndicator());
-              //         }
-              //       case ErrorState():
-              //         {
-              //           return Center(
-              //             child: Center(
-              //               child: Text(state.errorMessage),
-              //             ),
-              //           );
-              //         }
-              //       case SuccessMealState():
-              //           {
-              //             var data = state.mealEntity;
-              //             return Expanded(
-              //               child: GridView.builder(
-              //                 itemCount: data.length,
-              //                 gridDelegate:
-              //                     const SliverGridDelegateWithFixedCrossAxisCount(
-              //                   childAspectRatio: 5 / 6,
-              //                   crossAxisCount: 2,
-              //                   crossAxisSpacing: 10,
-              //                   mainAxisSpacing: 10,
-              //                 ),
-              //                 itemBuilder: (context, index) =>
-              //                     CategoryWidget(categoryData: data[index]),
-              //               ),
-              //             );
-              //           }
-              //       }
-              //     },
-              //   ),
             ],
           ),
         ),
