@@ -26,7 +26,7 @@ class _MyCustomDrawerState extends State<MyCustomDrawer> {
             const Divider(thickness: 1),
             const SizedBox(height: 20),
             const Text(
-              "To Make An Order",
+              "عشان تعمل أوردر",
               style: TextStyle(
                 fontSize: 22,
                 fontWeight: FontWeight.bold,
@@ -42,7 +42,7 @@ class _MyCustomDrawerState extends State<MyCustomDrawer> {
                 goToWhatsapp();
               },
               child: const Text(
-                "Just Call Us On 01150028603",
+                "من خلال الوتساب 01150028603",
                 style: TextStyle(
                   decoration: TextDecoration.underline,
                   color: Colors.blue,
@@ -51,11 +51,13 @@ class _MyCustomDrawerState extends State<MyCustomDrawer> {
             ),
             const SizedBox(height: 15),
             const Text(
-              "You Can Pay Cash On Delivery,\n Or Online On The Same Number",
+              "تقدر تدفع كاش عند الاستلام\n  أو تحول لمحفظه علي رقم 01123275233",
+              textAlign: TextAlign.center,
             ),
             const SizedBox(height: 50),
             const Text(
               "Bon appétit <3",
+              textAlign: TextAlign.center,
             ),
           ],
         ),
@@ -66,7 +68,7 @@ class _MyCustomDrawerState extends State<MyCustomDrawer> {
   goToWhatsapp() async {
     if (Platform.isAndroid) {
       launchUrl(Uri.parse(
-          '$whatsappUrl?text= ${Uri.parse("Hello! \n I want to make an order!")}'));
+          '$whatsappUrl?text= ${Uri.parse("هاي! \n عايز أعمل أوردر!")}'));
     }
   }
 }

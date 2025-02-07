@@ -1,4 +1,4 @@
-
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:food_court/presentation/features/home_feature/widgets/home_body.dart';
 import 'package:food_court/presentation/features/home_feature/widgets/my_custom_drawer.dart';
@@ -17,7 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Matba5 Rannem"),
+          title: const Text("مطبخ رنيم"),
         ),
         drawer: const MyCustomDrawer(),
         body: const HomeBody()

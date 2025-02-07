@@ -13,19 +13,19 @@ class CustomPageView extends StatelessWidget {
       controller: pageController,
       children: const [
         PageViewItem(
-          title: "Welcome",
-          description: "We have gained a great customer today!",
+          title: "!أهلا",
+          description: "!كسبنا عميل النهاردة",
           image: Assets.imgChoose,
         ),
         PageViewItem(
-          title: "Order Before 2 Days",
-          description: "For Any Order You Have to Order 2 Days before",
+          title: "أطلب قبلها بيومين",
+          description: "أطلب أي أوردر قبلها بيومين عشان نلحق نجهزه",
           image: Assets.imgApps,
         ),
         PageViewItem(
-          title: "Add To Favourites",
+          title: "اضف إلى السلة",
           description:
-              "You Can Add Your Favourite Meals To The Favourites Section",
+              "ممكن تضيف أي وجبة إلى السلة",
           image: Assets.imgHeart,
         ),
         // PageViewItem(

@@ -1,3 +1,4 @@
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:food_court/firebase/firebase_utils.dart';
 import 'package:food_court/model/meal_model.dart';
@@ -40,6 +41,7 @@ class _MealsScreenState extends State<MealsScreen> {
               child: CircularProgressIndicator(),
             );
           }
+
           if (snapshot.hasError) {
             return Center(
               child: Text(
@@ -47,6 +49,7 @@ class _MealsScreenState extends State<MealsScreen> {
               ),
             );
           }
+
           if (snapshot.data!.isEmpty) {
             return Center(
               child: Text(

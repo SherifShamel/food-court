@@ -67,7 +67,7 @@ class _WelcomeScreenBodyState extends State<WelcomeScreenBody> {
               child: InkWell(
                 onTap: skipPage,
                 child: const Text(
-                  "Skip",
+                  "تخطي",
                   style: TextStyle(
                     fontSize: 14,
                     color: Color(0xFF898989),
@@ -87,7 +87,7 @@ class _WelcomeScreenBodyState extends State<WelcomeScreenBody> {
               child: InkWell(
                 onTap: submit,
                 child: const Text(
-                  "Don't show this again",
+                  "تخطي للابد",
                   style: TextStyle(
                     fontSize: 14,
                     color: Color(0xFF898989),
@@ -113,8 +113,8 @@ class _WelcomeScreenBodyState extends State<WelcomeScreenBody> {
                 }
               },
               text: pageController!.hasClients
-                  ? (pageController?.page == 2 ? "Get Started" : "Next")
-                  : "Next",
+                  ? (pageController?.page == 2 ? "ابدا" : "التالي")
+                  : "التالي",
             ),
           ),
         ],
