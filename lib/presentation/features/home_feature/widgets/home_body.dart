@@ -36,45 +36,73 @@ class _HomeBodyState extends State<HomeBody> {
         }
 
         return ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: data.length,
-          itemBuilder: (context, index) => Center(
-            child: SizedBox(
-              width: 130,
-              height: 100,
-              child: TextButton(
-                style: const ButtonStyle(
-                  shape: MaterialStatePropertyAll(
-                    CircleBorder(),
-                  ),
-                  padding: MaterialStatePropertyAll(
-                    EdgeInsets.symmetric(vertical: 18, horizontal: 35),
-                  ),
-                  backgroundColor: MaterialStatePropertyAll(
-                    ApplicationThemeManager.myGreenBackground,
-                  ),
-                ),
-                onPressed: () {
-                  navigatorKey.currentState!.push(
-                    MaterialPageRoute(
-                      builder: (BuildContext context) => CategoryScreen(
-                        category: data[index]["status"],
-                        categoryId: data[index].id,
+            scrollDirection: Axis.horizontal,
+            itemCount: data.length + 1,
+            itemBuilder: (context, index) {
+              if (index == data.length) {
+                return Center(
+                  child: SizedBox(
+                    width: 130,
+                    height: 100,
+                    child: TextButton(
+                      onPressed: () {},
+                      style: const ButtonStyle(
+                        shape: MaterialStatePropertyAll(
+                          CircleBorder(),
+                        ),
+                        padding: MaterialStatePropertyAll(
+                          EdgeInsets.symmetric(vertical: 18, horizontal: 35),
+                        ),
+                        backgroundColor: MaterialStatePropertyAll(
+                          ApplicationThemeManager.myGreenBackground,
+                        ),
+                      ),
+                      child: const Text(
+                        "Add New",
+                        textAlign: TextAlign.center,
                       ),
                     ),
-                  );
-                },
-                child: Text(
-                  "${data[index]["status"]}",
-                  style: ApplicationThemeManager.theme.textTheme.bodySmall!
-                      .copyWith(
-                          color: Colors.white, fontWeight: FontWeight.bold),
-                  textAlign: TextAlign.center,
+                  ),
+                );
+              }
+
+              return Center(
+                child: SizedBox(
+                  width: 130,
+                  height: 100,
+                  child: TextButton(
+                    style: const ButtonStyle(
+                      shape: MaterialStatePropertyAll(
+                        CircleBorder(),
+                      ),
+                      padding: MaterialStatePropertyAll(
+                        EdgeInsets.symmetric(vertical: 18, horizontal: 35),
+                      ),
+                      backgroundColor: MaterialStatePropertyAll(
+                        ApplicationThemeManager.myGreenBackground,
+                      ),
+                    ),
+                    onPressed: () {
+                      navigatorKey.currentState!.push(
+                        MaterialPageRoute(
+                          builder: (BuildContext context) => CategoryScreen(
+                            category: data[index]["status"],
+                            categoryId: data[index].id,
+                          ),
+                        ),
+                      );
+                    },
+                    child: Text(
+                      "${data[index]["status"]}",
+                      style: ApplicationThemeManager.theme.textTheme.bodySmall!
+                          .copyWith(
+                              color: Colors.white, fontWeight: FontWeight.bold),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
                 ),
-              ),
-            ),
-          ),
-        );
+              );
+            });
       },
     );
 

@@ -68,7 +68,7 @@ class _MyCustomDrawerState extends State<MyCustomDrawer> {
   goToWhatsapp() async {
     if (Platform.isAndroid) {
       launchUrl(Uri.parse(
-          '$whatsappUrl?text= ${Uri.parse("هاي! \n عايز أعمل أوردر!")}'));
+          '$whatsappUrl?text= ${Uri.parse("هاي! \n عايز أعمل أوردر!\n ")}'));
     }
   }
 }

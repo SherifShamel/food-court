@@ -1,4 +1,3 @@
-import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:food_court/firebase/firebase_utils.dart';
 import 'package:food_court/model/meal_model.dart';
